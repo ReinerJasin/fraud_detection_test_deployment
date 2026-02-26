@@ -10,7 +10,7 @@ After running the training notebook (L6.1), copy your models:
 
 ```bash
 # From Part1_Training folder
-cp -r models/* ../Deploy_Render/models/
+cp -r models/* ../fraud_detection_test_deployment/models/
 ```
 
 Or manually copy these files to the `models/` folder:
@@ -20,8 +20,20 @@ Or manually copy these files to the `models/` folder:
 - `feature_stats.json`
 
 ### Step 2: Create GitHub Repository
+- Save the files inside the models which includes:
+    - models
+        - feature_stats.json
+        - model_metadata.json
+        - random_forest_pipeline.pkl
+        - xgboost_pipeline.pkl
+    - .python-version
+    - main.py
+    - Procfile
+    - README.md
+    - requirements.txt
+- Commit these files to the github repository.
 
-```bash
+<!-- ```bash
 # Initialize git
 cd Deploy_Render
 git init
@@ -32,7 +44,7 @@ git commit -m "Initial commit - Fraud Detection API"
 git remote add origin https://github.com/YOUR_USERNAME/fraud-detection-api.git
 git branch -M main
 git push -u origin main
-```
+``` -->
 
 ### Step 3: Deploy on Render
 
@@ -121,7 +133,7 @@ curl -X POST "https://YOUR-URL.onrender.com/predict" \
 ## Folder Structure
 
 ```
-Deploy_Render/
+fraud_detection_test_deployment/
 ├── main.py              # FastAPI application
 ├── requirements.txt     # Python dependencies
 ├── Procfile            # Render start command
